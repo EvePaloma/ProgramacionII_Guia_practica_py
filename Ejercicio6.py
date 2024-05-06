@@ -12,22 +12,20 @@ def validacion_contraseña(contraseña):
         return False
     
     #Inicializar una lista de requisitos con valores False para cada tipo de caracter
-    requisitos = [False,False,False,False,False,False]
+    requisitos = [False,False,False,False]
     
     #Recorrer cada caracter
     for char in contraseña:
-        if char.isupper():
+        if char in "abcdefghijklmnñopqrstuvwxyz":
             requisitos[0] = True
-        elif char in "Ñ":
+        elif char in "ABCDEFGHIJKLMNÑOPQRSTUVWXYZ":
             requisitos[1] = True    
-        elif char.islower():
-            requisitos[2] = True
-        elif char in  "ñ":
-            requisitos[3]    
         elif char.isdigit():
-            requisitos[4] = True
-        elif char in "!#$%&/()=?¡<>[]_-+°^}{":
-            requisitos[5] = True
+            requisitos[2] = True
+        elif char in "!#$%&/()=?¡<>[]_-+°^}*{":
+            requisitos[3] = True
+        else:
+            return False    
 
      #Imprimir requisitos para verificar
     #print("Requisitos: ", requisitos)
@@ -39,13 +37,16 @@ def validacion_contraseña(contraseña):
     
     return True
 
-#Validar contraseña   
-contraseña = input("Ingrese contraseña: ")
-
-while not validacion_contraseña(contraseña):
-    contraseña = input("Por favor, ingrese una contraseña válida: ")
+    #Validar contraseña   
+while True:
+    contraseña = input("Ingrese contraseña: ")
+    if validacion_contraseña(contraseña):
+        print("La contraseña es válida.")
+        break
+    else:
+        print("Por favor, ingrese una contraseña válida.")
 
     
-print("La contraseña es válida.")
+
 
    
