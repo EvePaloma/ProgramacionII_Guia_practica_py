@@ -9,8 +9,8 @@ def invertir_lista(lista):
 num = [10,20,30,40,50]
 resultado = invertir_lista(num)
 print(f"Elementos en orden inverso: {resultado}")
-
+'''
 palabras = ["hola, mundo"]
 resultado = invertir_lista(palabras)
 print(f"Elementos en orden inverso: {resultado}")
-
+'''
